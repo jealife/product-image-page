@@ -41,7 +41,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           <h3 className="product_name font-semibold text-sm md:text-lg">{name}</h3>
           <span className="price_product font-bold text-lg">${price.toFixed(2)}</span>
         </span>
-        <Link href={`/products/${slug}`} className="btn_product cursor-pointer bg-black/35 text-white font-semibold   transition-colors duration-300">
+        <Link href={`/products/${slug}`} className="btn_product cursor-pointer  bg-black/35 text-white font-semibold   transition-colors duration-300">
           <button >
             Buy Now
           </button>
