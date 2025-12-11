@@ -16,7 +16,7 @@ export default function ProductImageGallery({ images, nameProduct }: ProductImag
   return (
     <div className="w-full  pr-0"> 
       {/* --- Image Principale --- */}
-      <div className="main-image-container w-full h-[300px] md:h-[600px] bg-gray-50 p-0 mb-4 flex justify-center items-center rounded-lg shadow-lg dark:bg-gray-900">
+      <div className="main-image-container overflow-clip w-full h-[300px] md:h-[600px] bg-gray-50 p-0 mb-4 flex justify-center items-center rounded-lg shadow-lg dark:bg-gray-900">
         <img
           src={currentImage}
           alt={nameProduct}

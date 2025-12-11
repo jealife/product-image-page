@@ -41,12 +41,11 @@ export const productsData: Product[] = [
     slug: 'air-max-270',
     price: 150.00,
     brand: 'Nike',
-    imageUrl: '/img/Nike-Air-Max-270.webp',
+    imageUrl: '/img/Nike-Air-Max-270.avif',
     thumbnails: [
-      '/img/Nike-Air-Max-270-1.webp',
-      '/img/Nike-Air-Max-270-2.webp',
-      '/img/Nike-Air-Max-270-3.webp',
-      '/img/Nike-Air-Max-270.webp'
+      '/img/NIKE+AIR+MAX+270.avif',
+      '/img/air.avif',
+      '/img/NIKE+AIR+MAX+270+(GS).avif',
     ]
   },
   {
