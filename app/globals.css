@@ -18,6 +18,9 @@
     --foreground: #ededed;
   }
 }
+/* .active{
+  color: #004ad3;
+} */
 
 body {
   background: var(--background);
