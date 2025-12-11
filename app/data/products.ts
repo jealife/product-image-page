@@ -56,10 +56,7 @@ export const productsData: Product[] = [
     brand: 'Puma',
     imageUrl: '/img/Puma-RS-X-Pop.jpg',
     thumbnails: [
-      '/img/Puma-RS-X-Pop-1.jpg',
-      '/img/Puma-RS-X-Pop-2.jpg',
-      '/img/Puma-RS-X-Pop-3.jpg',
-      '/img/Puma-RS-X-Pop.jpg'
+      // '/img/Puma-RS-X-Pop-1.jpg',
     ]
   },
   {
@@ -70,10 +67,9 @@ export const productsData: Product[] = [
     brand: 'New Balance',
     imageUrl: '/img/New-Balance-550.webp',
     thumbnails: [
-      '/img/New-Balance-550-1.webp',
-      '/img/New-Balance-550-2.webp',
-      '/img/New-Balance-550-3.webp',
-      '/img/New-Balance-550.webp'
+      '/img/Chaussures-Unisexe-550.webp',
+      '/img/Chaussures Unisexe 550.webp',
+      '/img/Chaussures Unisexe 550 (1).webp',
     ]
   },
   {
