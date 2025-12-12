@@ -1,12 +1,13 @@
 import ProductImageGallery from '@/app/components/ui/ProductImageGallery';
 import { getProductBySlug, productsData } from '@/app/data/products';
 import Link from 'next/link';
+import { notFound } from 'next/navigation';
 
 interface ProductPageProps {
-  nameProduct: string;
+    nameProduct: string;
 }
 
-export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function ProductPage({ params }: { params: { slug: string } | Promise<{ slug: string }> }) {
 
     const { slug } = await params;
 
@@ -14,24 +15,12 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     console.log("[DEBUG] Slug reçu :", slug);
 
     if (!slug) {
-        return (
-            <div className="text-center py-20">
-                <h1 className="text-3xl font-bold">404 - URL Invalide</h1>
-                <p className="mt-4">L'identifiant du produit est manquant dans l'URL.</p>
-            </div>
-        );
+        notFound();
     }
 
     const product = getProductBySlug(slug);
 
-    if (!product) {
-        return (
-            <div className="text-center py-20">
-                <h1 className="text-3xl font-bold">404 - Article introuvable</h1>
-                <p className="mt-4">L'article `{slug}` n'existe pas.</p>
-            </div>
-        );
-    }
+    if (!product) notFound();
 
     return (
         <>
@@ -52,14 +41,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
                     <ProductImageGallery
-                      images={[product.imageUrl, ...product.thumbnails]}
-                      nameProduct={product.name}
+                        images={[product.imageUrl, ...product.thumbnails].filter(Boolean) as string[]}
+                        nameProduct={product.name}
                     />
-                    <div className="w-full md:w-1/2 lg:w-7/12">
+                    <div className="w-full md:w-xl ">
                         <h1 className="text-3xl font-light mb-1">{product.name}</h1>
                         <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
                             {/* Icônes d'étoiles simulées (utilisez une librairie comme Heroicons pour les vraies icônes) */}
-                            <span>⭐⭐⭐⭐⭒</span>
+                            <span>⭐⭐⭐⭐</span>
                             <span className="text-xs">(42 reviews)</span>
                             <span className="text-xs">{product.brand}</span>
                         </div>
@@ -67,12 +56,14 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
                         <p className="text-4xl font-bold mb-8">${product.price.toFixed(2)}</p>
 
                         {/* ... Ici iraient les sélections de taille/couleur et le bouton "Add to cart" ... */}
-                        <div className="mt-6">
-                            <button
+                        <div className="mt-6 w-full">
+
+                            <Link href={'/'}><button
                                 className="w-full bg-black cursor-pointer text-white font-semibold py-3 rounded-md hover:bg-gray-800 transition-colors"
                             >
-                                Add to cart
+                                 Buy now
                             </button>
+                            </Link>
                             <p className="text-sm text-green-600 mt-2 text-center">
                                 Free delivery on orders over $30.0
                             </p>

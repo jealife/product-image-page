@@ -22,7 +22,7 @@ const CloseIcon = () => (
 // Définition des liens
 const navItems = [
   { name: 'Shop', href: '/shop' },
-  // { name: 'Shoes', href: '/products' },
+  { name: 'Gallery', href: '/gallery' },
   // { name: 'Men', href: '/men' },
   // { name: 'Kids', href: '/kids' },
 ];

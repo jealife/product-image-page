@@ -22,10 +22,10 @@ export default async function ShopPage() {
 
 
       <h1 className="text-4xl font-light text-gray-900 mb-8 border-b pb-2">
-        Toute la collection
+        Collection
       </h1>
 
-      <div className="mt-6 grid grid-cols-2 gap-x-3 md:gap-x-2 gap-y-4 sm:grid-cols-3 xl:gap-x-8">
+      <div className="mt-6 grid grid-cols-2 gap-x-3 md:gap-x-2. xl:gap-x-8 gap-y-4 sm:grid-cols-3 ">
 
 
         {products.map((product) => (
