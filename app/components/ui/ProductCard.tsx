@@ -37,8 +37,8 @@ export default function ProductCard({ product }: ProductCardProps) {
         className="image_product" />
       <div className="card_content_product md:p-4 px-2 py-3 relative">
         <span className="product text-gray-700">
-          <h3 className="product_name font-semibold text-sm md:text-lg">{name}</h3>
-          <span className="price_product font-bold text-lg">${price.toFixed(2)}</span>
+          <h3 className="product_name font-normal text-xs md:text-lg">{name}</h3>
+          <span className="price_product font-bold text-sm md:text-lg">${price.toFixed(2)}</span>
         </span>
         <Link href={`/products/${slug}`} className="btn_product cursor-pointer  bg-black/35 text-white font-semibold   transition-colors duration-300">
           <button >
