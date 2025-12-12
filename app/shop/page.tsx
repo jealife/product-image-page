@@ -1,3 +1,39 @@
+// seo 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Shop | BR.F – Sneakers & Chaussures tendance',
+  description:
+    'Découvrez notre sélection de sneakers et chaussures tendance : Nike, Adidas, Reebok, Puma et plus encore. Qualité, style et confort au rendez-vous.',
+
+  openGraph: {
+    title: 'Shop | BR.F – Sneakers & Chaussures tendance',
+    description:
+      'Explorez notre collection de sneakers premium pour homme, femme et enfant. Livraison rapide et styles modernes.',
+    url: 'https://brf-seven.vercel.app/shop',
+    siteName: 'BR.F',
+    images: [
+      {
+        url: 'https://brf-seven.vercel.app/og/preview.avif',
+        width: 1200,
+        height: 630,
+        alt: 'Collection de sneakers BR.F',
+      },
+    ],
+    locale: 'fr_FR',
+    type: 'website',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Shop | BR.F – Sneakers & Chaussures tendance',
+    description:
+      'Sneakers modernes et confortables pour tous les styles. Découvrez la collection BR.F.',
+    images: ['https://brf-seven.vercel.app/og/preview.avif'],
+  },
+};
+
+// seo. 
 import { productsData } from '../data/products';
 
 function getAllProducts() {
