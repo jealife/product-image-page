@@ -32,7 +32,8 @@ function getAllProducts() {
             height={700}
             src={currentImage}
             alt={nameProduct}
-            className="w-full max-w-5xl h-auto object-cover object-center rounded-lg"
+            title='Zoom sur cette image'
+            className="w-full max-w-5xl hover:cursor-zoom-in h-auto object-cover object-center rounded-lg"
           />
         </div>
         <div className='w-full my-9'>

@@ -122,7 +122,6 @@ a {
   position: absolute;
   margin-top: 1rem;
   bottom: -5rem;
-  cursor: pointer;
   transition: bottom .6s cubic-bezier(0.18, 0.89, 0.3, 1.24)
 }
 
