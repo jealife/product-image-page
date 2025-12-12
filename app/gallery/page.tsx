@@ -15,7 +15,7 @@ export default function page() {
             <h1 className="text-4xl font-light text-gray-900 mb-8 border-b pb-2">
                 Gallery
             </h1>
-            <div className="mt-6 columns-2 md:columns-3  gap-x-6 gap-y-6">
+            <div className="mt-6 columns-1 md:columns-3  gap-x-6 gap-y-6">
                 {products.map((image) => (
                     <ImageCard key={image.id} image={image} />
                 ))}
