@@ -22,7 +22,7 @@ function getAllProducts() {
 export default function ImageGallery({ images, nameProduct, slug }: ImageGalleryProps) {
   const [currentImage] = useState(images[0]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isPortrait] = useState<boolean | null>(null);
+  const [isPortrait, setIsPortrait] = useState<boolean | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const products = getAllProducts();
 
@@ -32,8 +32,12 @@ export default function ImageGallery({ images, nameProduct, slug }: ImageGallery
 
 
 
-  const handleImageLoad = () => {
+  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     setIsLoading(false);
+    const img = e.currentTarget as HTMLImageElement;
+    if (img.naturalWidth && img.naturalHeight) {
+      setIsPortrait(img.naturalHeight > img.naturalWidth);
+    }
   };
 
   return (
@@ -53,12 +57,11 @@ export default function ImageGallery({ images, nameProduct, slug }: ImageGallery
           className={
             `hover:cursor-zoom-in object-center rounded-lg ` +
             (isPortrait === null
-              ? 'opacity-0'
+              ? 'w-full h-auto'
               : isPortrait
                 ? 'h-[60dvh] w-auto max-h-[60dvh] mx-auto'
                 : 'w-full h-auto')
           }
-          style={isPortrait === null ? { visibility: 'hidden' } : {}}
           onClick={() => {
             // Zoom uniquement sur desktop
             if (window.innerWidth >= 768) setIsZoomed(true);

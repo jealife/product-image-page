@@ -24,6 +24,8 @@ export default function ProductImageGallery({ images, nameProduct }: ProductImag
           className="w-full h-full object-cover object-center rounded-lg"
           width={600}
           height={600}
+          // placeholder="blur"
+          // blurDataURL="/img/placeholder.webp"
         />
       </div>
 
@@ -51,6 +53,8 @@ export default function ProductImageGallery({ images, nameProduct }: ProductImag
               className="max-w-full max-h-full object-contain"
               width={96}
               height={96}
+              placeholder="blur"
+              blurDataURL="/img/placeholder.webp"
             />
           </div>
         ))}

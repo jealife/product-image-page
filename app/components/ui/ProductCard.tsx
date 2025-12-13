@@ -35,7 +35,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         <Image aria-label={`Image de ${name}`}
           src={imageUrl}
           alt={`Image de ${name}`}
-          className="image_product" width={300} height={300} />
+          className="image_product" width={300} height={300} placeholder="blur" blurDataURL="/img/placeholder.webp" />
         <div className="card_content_product md:p-4 px-2 py-3 relative">
           <span className="product text-gray-700">
             <h3 className="product_name font-normal text-xs md:text-lg">{name}</h3>

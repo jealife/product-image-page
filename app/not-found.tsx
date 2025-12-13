@@ -8,7 +8,7 @@ export default function NotFoundPage() {
         <p className="text-gray-500 mt-2">
           Cette page n’existe pas.
         </p>
-        <Image width={500} height={500} src="/404-error.png" className='w-[65%] md:w-[80%]' alt="" />
+        <Image width={500} height={500} src="/404-error.png" className='w-[65%] md:w-[80%]' alt="" placeholder="blur" blurDataURL="/img/placeholder.webp" />
       </div>
     </main>
   );
