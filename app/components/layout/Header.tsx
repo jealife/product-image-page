@@ -98,7 +98,7 @@ export default function Header() {
 
       {/* --- Menu MOBILE flottant --- */}
       <div
-        className={`md:hidden fixed top-16 right-4 w-[85%] max-w-sm border border-gray-300 bg-white rounded-2xl shadow-xl z-100
+        className={`md:hidden fixed top-16 right-4 w-[70%] max-w-sm border border-gray-300 bg-white rounded-2xl shadow-xl z-100
           transition-all duration-300 ease-out
           ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}
         `}
@@ -111,20 +111,20 @@ export default function Header() {
                   <SectionIcon>{item.icon}</SectionIcon>
                   <span className="font-medium text-gray-900">{item.name}</span>
                 </div>
-                <span className="text-gray-400">⌄</span>
+                {/* <span className="text-gray-400">⌄</span> */}
               </div>
             </Link>
           ))}
 
-          <div className="border-t pt-3 mt-3">
-            <button className="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-gray-100 transition">
+          <div className="border-t border-gray-300 mt-3">
+            {/* <button className="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-gray-100 transition">
               <SectionIcon>🌍</SectionIcon>
               <span className="font-medium text-gray-900">Français</span>
-            </button>
+            </button> */}
           </div>
 
-          <div className="pt-3">
-            <button className="w-full py-3 rounded-xl border font-semibold text-gray-700 hover:bg-gray-50 transition">
+          <div className="pt-2">
+            <button className="w-full bg-gray-800 py-3 rounded-xl border font-semibold text-gray-100 hover:bg-gray-50 transition">
               Envoyer une image
             </button>
           </div>

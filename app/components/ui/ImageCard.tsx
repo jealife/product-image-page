@@ -37,12 +37,18 @@ export default function ImageCard({
               className="w-full h-auto object-cover transition group-hover:brightness-75"
             />
           </Link>
-          <span title='prix' className="mt-2 hidden md:group-hover:flex absolute top-4 left-6
+          {showDownload ? (
+            <span title='prix' className="flex md:group-hover:flex absolute top-4 left-6
                        bg-black/50 text-white border transition hover:bg-black/70
                        px-4 py-2 text-xs font-semibold rounded-2xl
-                       border-black">
-            {image.free ? 'Gratuit' : (image.price ? image.price + ' FCFA' : '—')}
-          </span>
+                       border-black ">
+              {image.free ? 'Gratuit' : (image.price ? image.price + ' FCFA' : '—')}
+            </span>
+          ) : (
+            <span className="hidden md:group-hover:flex absolute top-4 right-6 bg-black/50 text-white rounded-2xl px-2 py-2 transition hover:bg-black/70 z-10">
+              <i className={image.free ? 'bx bx-folder-down-arrow text-2xl' : 'bx bx-lock-keyhole text-2xl'}></i>
+            </span>
+          )}
           {/* Icône desktop → paiement */}
           {showDownload && (
             image.free ? (
@@ -50,17 +56,16 @@ export default function ImageCard({
                 <a
                   href={imageUrl}
                   download
-                  className="flex md:group-hover:flex absolute top-4 right-6 bg-black/50 text-white rounded-2xl px-2 py-1 transition hover:bg-black/70 z-10"
-                  style={{ display: 'flex' }}
+                  className="hidden md:group-hover:flex absolute top-4 right-6 bg-black/50 text-white rounded-2xl px-2 py-2 transition hover:bg-black/70 z-10"
                   title="Télécharger gratuitement"
                 >
-                  <i className='bx  bx-folder-down-arrow text-2xl'></i> 
+                  <i className='bx bx-folder-down-arrow text-2xl'></i>
                 </a>
               </>
             ) : (
               <button
                 onClick={() => setOpenPayment(true)}
-                className="hidden md:group-hover:flex absolute top-4 right-6 bg-black/50 text-white rounded-2xl px-2 py-1 transition hover:bg-black/70"
+                className="flex md:group-hover:flex absolute top-4 right-6  text-white rounded-2xl px-2 py-1 transition hover:bg-black/70"
                 title="Acheter et télécharger"
               >
                 <i className="bx bx-lock-keyhole text-2xl"></i>
@@ -71,12 +76,15 @@ export default function ImageCard({
         <div className="w-full flex justify-between items-center">
 
           {/* Bouton mobile → paiement fullscreen */}
-          <span title='prix' className="md:hidden mt-2
-                       bg-gray-50 border text-gray-800 rounded-md
-                       px-4 py-2 text-xs font-semibold
-                         border-black">
-            {image.free ? 'Gratuit' : (image.price ? image.price + ' FCFA' : '—')}
-          </span>
+          {showDownload ? (
+            image.free
+              ? <span className="md:hidden "></span>
+              : <span title='prix' className="md:hidden mt-2 bg-gray-50 border text-gray-800 rounded-md px-4 py-2 text-xs font-semibold border-black">{image.price ? image.price + ' FCFA' : '—'}</span>
+          ) : (
+            <span className="md:hidden flex absolute top-4 right-6 bg-black/50 text-white rounded-2xl px-2 py-2 transition hover:bg-black/70 z-10">
+              <i className={image.free ? 'bx bx-folder-down-arrow text-lg' : 'bx bx-lock-keyhole text-lg'}></i>
+            </span>
+          )}
           {showDownload && (
             image.free ? (
               <a
