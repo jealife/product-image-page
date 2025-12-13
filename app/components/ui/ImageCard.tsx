@@ -33,7 +33,7 @@ export default function ImageCard({
               alt={`Image de ${title}`}
               title={`Image de ${title}`}
               width={300}
-              height={640}
+              height={440}
               className="w-full h-auto object-cover transition group-hover:brightness-75"
             />
           </Link>
