@@ -4,6 +4,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --min-width: min(100%, 327px);
+  --max-width: calc(calc(100vh - 205px) * 0.5626666666666666);
 }
 
 @theme inline {
@@ -63,14 +65,23 @@ a {
   object-fit: cover;
   object-position: center;
   transition: transform 0.3s cubic-bezier(0, 0.87, 0.43, 1.1);
+  aspect-ratio: auto 3376 / 6000;
+}
+
+.imageLayout {
+  width: 100%;
+  min-width: var(--min-width);
+  max-width: var(--max-width);
+  margin-inline: auto;
 }
 
 /* gallery hover transition  */
 
 
-.cubic{
+.cubic {
   transition: transform 0.3s cubic-bezier(0, 0.87, 0.43, 1.1);
 }
+
 .image_card:hover .cubic {
   transform: scale(1.3);
 }

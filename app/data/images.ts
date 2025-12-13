@@ -17,9 +17,8 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe1.jpg',
     tags: [
-      '',
-      '',
-      '',
+      'plante',
+      'nature'
     ]
   },
   {
@@ -30,7 +29,9 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe2.jpg',
     tags: [
-      ''
+      'plante',
+      'nature',
+      'fleur'
     ]
   },
   {
@@ -41,7 +42,9 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe3.jpg',
     tags: [
-      '',
+      'plante',
+      'nature',
+      'fleur'
     ]
   },
   {
@@ -74,8 +77,8 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe6.jpg',
     tags: [
-      '',
-      '',
+      'oiseau',
+      'nature',
     ]
   },
   {
@@ -86,8 +89,9 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe7.jpg',
     tags: [
-      '',
-      '',
+      'plante',
+      'nature',
+      'fleur'
     ]
   },
   {
@@ -104,14 +108,15 @@ export const imagesData: Pictures[] = [
   },
   {
     id: 9,
-    title: 'Converse Chuck 70',
+    title: 'Tropical orange',
     slug: 'jealife9',
     price: 3000,
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe9.jpg',
     tags: [
-      '',
-      '',
+      'fruits',
+      'ville',
+      'marché'
     ]
   },
   {
@@ -128,26 +133,32 @@ export const imagesData: Pictures[] = [
   },
   {
     id: 11,
-    title: 'Converse Chuck 70',
+    title: 'Moto cycle en pleine ville',
     slug: 'jealife11',
     price: 3000,
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe11.jpg',
     tags: [
-      '',
-      '',
+      'cycle',
+      'ville',
+      'moto',
+      'taxi',
+      'transport'
     ]
   },
   {
     id: 12,
-    title: 'Converse Chuck 70',
+    title: 'Taxi bus gare',
     slug: 'jealife12',
     price: 3000,
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe12.jpg',
     tags: [
-      '',
-      '',
+      'bus',
+      'ville',
+      'vehicule',
+      'taxi',
+      'transport'
     ]
   },
   {
@@ -158,8 +169,11 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe13.jpg',
     tags: [
-      '',
-      '',
+      'bus',
+      'ville',
+      'vehicule',
+      'taxi',
+      'transport'
     ]
   },
   {
@@ -170,8 +184,8 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe14.jpg',
     tags: [
-      '',
-      '',
+      'nature',
+      'oiseau',
     ]
   },
   {
@@ -182,8 +196,7 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/JEaLiFe15.jpg',
     tags: [
-      '',
-      '',
+      'nature',
     ]
   },
   {
@@ -206,8 +219,8 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/nature.jpg',
     tags: [
-      '',
-      '',
+      'nature',
+      'oiseau',
     ]
   },
   {
@@ -218,8 +231,8 @@ export const imagesData: Pictures[] = [
     author: 'JEaLiFe Pictures',
     imageUrl: '/pictures/oiseau.jpg',
     tags: [
-      '',
-      '',
+      'nature',
+      'oiseau',
     ]
   },
 ];

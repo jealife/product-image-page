@@ -31,8 +31,9 @@ export default async function ImagesPage({ params }: { params: { slug: string } 
 
             <div className="grid grid-cols-1  w-full">
                 <ImageGallery
-                    images={[product.imageUrl, ...product.tags].filter(Boolean) as string[]}
+                    images={[product.imageUrl]}
                     nameProduct={product.title}
+                    slug={slug}
                 />
             </div>
         </main>
