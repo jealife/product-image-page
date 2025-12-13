@@ -2,6 +2,29 @@ import ImageGallery from '@/app/components/ui/ImageGallery';
 import { getProductBySlug, imagesData } from '@/app/data/images';
 import { notFound } from 'next/navigation';
 
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const image = getProductBySlug(slug);
+
+  if (!image) {
+    return {
+      title: 'Image introuvable | JeaLife Pictures',
+    };
+  }
+
+  return {
+    title: `${image.title} | JEaLiFe Pictures`,
+    description: image.title,
+    openGraph: {
+      images: [
+        {
+          url: `https://brf-seven.vercel.app/${image.imageUrl}`,
+        },
+      ],
+    },
+  };
+}
+
 
 export default async function ImagesPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
