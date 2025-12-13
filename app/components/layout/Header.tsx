@@ -19,6 +19,7 @@ const CloseIcon = () => (
 );
 import { ReactNode } from 'react';
 import StickySearchBar from './StickySearchBar';
+import { Suspense } from 'react';
 const SectionIcon = ({ children }: { children: ReactNode }) => (
   <span className="w-6 h-6 text-gray-700">{children}</span>
 );
@@ -86,7 +87,9 @@ export default function Header() {
           </button>
         </div>
       </div>
-      <StickySearchBar/>
+      <Suspense fallback={null}>
+        <StickySearchBar/>
+      </Suspense>
       
       {/* --- Overlay --- */}
 {/* {isMenuOpen && (

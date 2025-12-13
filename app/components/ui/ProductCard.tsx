@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import type { Product } from '@/app/data/products';
+import Image from 'next/image';
 
 interface ProductCardProps {
   product: Product;
@@ -31,10 +32,10 @@ export default function ProductCard({ product }: ProductCardProps) {
     // </Link> 
       <Link href={`/products/${slug}`} className="product_card md:h-[430px] h-[180px] relative group block bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300   w-full overflow-clip card card">
         {/* //</article><img aria-label="Nike Air Force 1" src="https://images.unsplash.com/photo-1626379616459-b2ce1d9decbc?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Nike Air Force 1" className="image_product"> --> */}
-        <img aria-label={`Image de ${name}`}
+        <Image aria-label={`Image de ${name}`}
           src={imageUrl}
           alt={`Image de ${name}`}
-          className="image_product" />
+          className="image_product" width={300} height={300} />
         <div className="card_content_product md:p-4 px-2 py-3 relative">
           <span className="product text-gray-700">
             <h3 className="product_name font-normal text-xs md:text-lg">{name}</h3>

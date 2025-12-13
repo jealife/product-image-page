@@ -1,5 +1,3 @@
-import ProductImageGallery from "@/app/components/ui/ProductImageGallery";
-
 
 
 export default function ProductPage() {

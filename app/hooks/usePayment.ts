@@ -19,9 +19,14 @@ export function usePayment() {
       if (!res.ok) throw new Error('Paiement échoué');
 
       return await res.json();
-    } catch (e: any) {
-      setError(e.message);
-      throw e;
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setError(e.message);
+        throw e;
+      } else {
+        setError('Erreur inconnue');
+        throw new Error('Erreur inconnue');
+      }
     } finally {
       setLoading(false);
     }

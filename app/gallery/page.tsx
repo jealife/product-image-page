@@ -32,10 +32,18 @@ export const metadata: Metadata = {
   },
 };
 
+
+
 import GalleryClient from './GalleryClient';
 import { imagesData } from '../data/images';
+import { Suspense } from 'react';
 
 export default function Page() {
+
   // Les metadata sont maintenant pris en compte car ce composant est un Server Component
-  return <GalleryClient products={imagesData} />;
+  return (
+    <Suspense fallback={<div className="text-center py-12">Chargement de la galerie…</div>}>
+      <GalleryClient products={imagesData} />
+    </Suspense>
+  );
 }

@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import React, { useState } from 'react';
 
 interface ProductImageGalleryProps {
@@ -17,11 +18,12 @@ export default function ProductImageGallery({ images, nameProduct }: ProductImag
     <div className="w-full  pr-0"> 
       {/* --- Image Principale --- */}
       <div className="main-image-container overflow-clip w-full h-[300px] md:h-[600px] bg-gray-50 p-0 mb-4 flex justify-center items-center rounded-lg shadow-lg dark:bg-gray-900">
-        <img
+        <Image
           src={currentImage}
           alt={nameProduct}
           className="w-full h-full object-cover object-center rounded-lg"
-          //style={{ maxHeight: '400px' }}
+          width={600}
+          height={600}
         />
       </div>
 
@@ -43,10 +45,12 @@ export default function ProductImageGallery({ images, nameProduct }: ProductImag
               }
             `}
           >
-            <img
+            <Image
               src={image}
               alt={`Vue du produit ${index + 1}`}
               className="max-w-full max-h-full object-contain"
+              width={96}
+              height={96}
             />
           </div>
         ))}

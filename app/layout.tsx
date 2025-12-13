@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
-import Head from "next/head";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
-import StickySearchBar from "./components/layout/StickySearchBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,7 +18,7 @@ export const metadata: Metadata = {
   title: "BR.F E-commerce Store",
   description: "A modern e-commerce store built with Next.js and Tailwind CSS.",
 };
-const productSlug = 'zig-kinetica-3';
+
 
 export default function RootLayout({
   children,
@@ -37,7 +34,6 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header/>
-        {/* <StickySearchBar /> */}
         {children}
         <Footer/>
       </body>

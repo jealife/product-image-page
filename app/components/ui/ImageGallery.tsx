@@ -20,9 +20,9 @@ function getAllProducts() {
 // ------------------------------------------------------------------
 
 export default function ImageGallery({ images, nameProduct, slug }: ImageGalleryProps) {
-  const [currentImage, setCurrentImage] = useState(images[0]);
+  const [currentImage] = useState(images[0]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isPortrait, setIsPortrait] = useState<boolean | null>(null);
+  const [isPortrait] = useState<boolean | null>(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const products = getAllProducts();
 
@@ -30,18 +30,10 @@ export default function ImageGallery({ images, nameProduct, slug }: ImageGallery
   const currentProduct = slug ? getProductBySlug(slug) : null;
   const tags = currentProduct?.tags?.filter(tag => tag.trim() !== '') || [];
 
-  const handleThumbnailClick = (src: string) => {
-    setCurrentImage(src);
-    setIsLoading(true);
-    setIsPortrait(null);
-  };
 
-  const handleImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+
+  const handleImageLoad = () => {
     setIsLoading(false);
-    const img = e.currentTarget;
-    if (img && img.naturalWidth && img.naturalHeight) {
-      setIsPortrait(img.naturalHeight > img.naturalWidth);
-    }
   };
 
   return (
@@ -49,8 +41,7 @@ export default function ImageGallery({ images, nameProduct, slug }: ImageGallery
       <div className="main-image-container overflow-clip w-full h-auto mb-4 flex justify-center items-center rounded-lg dark:bg-gray-900 relative ">
         {isLoading && <div className="absolute inset-0 flex items-center justify-center"><Loader /></div>}
         <Image
-          quality={80}
-          width={5000}
+          width={2000}
           height={1000}
           src={currentImage}
           alt={nameProduct}
@@ -58,8 +49,7 @@ export default function ImageGallery({ images, nameProduct, slug }: ImageGallery
           onLoad={handleImageLoad}
           priority
           placeholder="blur"
-          blurDataURL="/img/placeholder-blur.png"
-          sizes="(max-width: 768px) 100vw, 900px"
+          blurDataURL="/img/placeholder.webp"
           className={
             `hover:cursor-zoom-in object-center rounded-lg ` +
             (isPortrait === null
@@ -69,7 +59,7 @@ export default function ImageGallery({ images, nameProduct, slug }: ImageGallery
                 : 'w-full h-auto')
           }
           style={isPortrait === null ? { visibility: 'hidden' } : {}}
-          onClick={(e) => {
+          onClick={() => {
             // Zoom uniquement sur desktop
             if (window.innerWidth >= 768) setIsZoomed(true);
           }}

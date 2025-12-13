@@ -3,12 +3,10 @@ import { getProductBySlug, productsData } from '@/app/data/products';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-interface ProductPageProps {
-    nameProduct: string;
-}
 
-export default async function ProductPage({ params }: { params: { slug: string } | Promise<{ slug: string }> }) {
 
+
+export default async function ProductPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
 
     console.log("[DEBUG] Taille tableau :", productsData.length);

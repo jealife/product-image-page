@@ -4,6 +4,7 @@ import { useState } from 'react';
 import type { Pictures } from '@/app/data/images';
 import { PaymentProvider } from '@/app/types/payment';
 import { usePayment } from '@/app/hooks/usePayment';
+import Image from 'next/image';
 
 export default function PaymentForm({
   image,
@@ -36,7 +37,7 @@ export default function PaymentForm({
           className={`flex flex-col items-center border rounded p-2 w-20 transition focus:outline-none ${provider === 'AIRTEL' ? 'border-black ring-2 ring-red-600' : 'border-gray-300'}`}
           onClick={() => setProvider('AIRTEL')}
         >
-          <img src="/logos/airtel-money.png" alt="Airtel Money" className="h-12" />
+          <Image src="/logos/airtel-money.png" alt="Airtel Money" className="h-12" width={48} height={48} />
           {/* <span className="text-xs font-medium">Airtel</span> */}
         </button>
         <button
@@ -44,7 +45,7 @@ export default function PaymentForm({
           className={`flex flex-col items-center border rounded p-2 w-20 transition focus:outline-none ${provider === 'MOOV' ? 'border-black ring-2 ring-yellow-500' : 'border-gray-300'}`}
           onClick={() => setProvider('MOOV')}
         >
-          <img src="/logos/LOGO-MOMO.jpg" alt="Moov Money" className="h-12 " />
+          <Image src="/logos/LOGO-MOMO.jpg" alt="Moov Money" className="h-12" width={48} height={48} />
           {/* <span className="text-xs font-medium">Moov</span> */}
         </button>
       </div>

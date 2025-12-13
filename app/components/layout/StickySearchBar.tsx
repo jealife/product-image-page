@@ -1,19 +1,14 @@
 "use client";
 import SearchBar from '../ui/SearchBar';
 import { useRouter, usePathname, useSearchParams } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function StickySearchBar() {
-  const [search, setSearch] = useState('');
+  const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
-  const searchParams = useSearchParams();
-
-  // Synchronise avec ?q= si présent
-  useEffect(() => {
-    const q = searchParams.get('q') || '';
-    setSearch(q);
-  }, [searchParams]);
+  const q = searchParams.get('q') || '';
+  const [search, setSearch] = useState(q);
 
   // Afficher uniquement sur /gallery ou /images/[slug]
   const isGallery = pathname === '/gallery';
@@ -41,8 +36,6 @@ export default function StickySearchBar() {
           <SearchBar value={search} onInputChange={setSearch} onValidate={handleValidate} />
         </div>
       </div>
-      {/* Ajoute un espace pour ne pas masquer le contenu */}
-      {/* <div style={{ height: headerHeight + 64 }} /> */}
     </>
   );
 }
