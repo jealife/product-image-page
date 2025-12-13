@@ -45,8 +45,8 @@ export default function ImageGallery({ images, nameProduct, slug }: ImageGallery
       <div className="main-image-container overflow-clip w-full h-auto mb-4 flex justify-center items-center rounded-lg dark:bg-gray-900 relative ">
         {isLoading && <div className="absolute inset-0 flex items-center justify-center"><Loader /></div>}
         <Image
-          width={2000}
-          height={1000}
+          width={1000}
+          height={500}
           src={currentImage}
           alt={nameProduct}
           title='Zoom sur cette image'
