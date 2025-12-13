@@ -17,14 +17,18 @@ const CloseIcon = () => (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
     </svg>
 );
+import { ReactNode } from 'react';
+import StickySearchBar from './StickySearchBar';
+const SectionIcon = ({ children }: { children: ReactNode }) => (
+  <span className="w-6 h-6 text-gray-700">{children}</span>
+);
 
 
-// Définition des liens
+
+// Définition des liens (utilisé pour desktop et mobile)
 const navItems = [
-  { name: 'Shop', href: '/shop' },
-  { name: 'Gallery', href: '/gallery' },
-  // { name: 'Men', href: '/men' },
-  // { name: 'Kids', href: '/kids' },
+  { name: 'Shop', href: '/shop', icon: '📦' },
+  { name: 'Gallery', href: '/gallery', icon: '🖼️' },
 ];
 
 export default function Header() {
@@ -36,7 +40,7 @@ export default function Header() {
   const closeMenu = () => setIsMenuOpen(false);
 
   return (
-    <header className="bg-white/50 backdrop-blur-2xl border-b border-gray-300 sticky top-0 z-20 ">
+    <header className="bg-white/80 backdrop-blur-2xl border-b border-gray-300 sticky top-0 z-50 ">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
           
@@ -64,6 +68,7 @@ export default function Header() {
               );
             })}
           </nav>
+          
 
           {/* Icônes Utilisateur/Panier */}
           <div className="flex items-center space-x-4">
@@ -81,36 +86,51 @@ export default function Header() {
           </button>
         </div>
       </div>
+      <StickySearchBar/>
       
-      {/* --- Menu MOBILE Déroulant --- */}
-      {/* Affiché si isMenuOpen est true, masqué si md:hidden (pour ne pas apparaître sur desktop) */}
-      <div 
-        className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-          isMenuOpen ? 'max-h-screen border-t border-gray-100' : 'max-h-0'
-        }`}
+      {/* --- Overlay --- */}
+{/* {isMenuOpen && (
+  <div
+    onClick={closeMenu}
+    className="md:hidden fixed inset-0 bg-black/20 z-90"
+  />
+)} */}
+
+      {/* --- Menu MOBILE flottant --- */}
+      <div
+        className={`md:hidden fixed top-16 right-4 w-[85%] max-w-sm border border-gray-300 bg-white rounded-2xl shadow-xl z-100
+          transition-all duration-300 ease-out
+          ${isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}
+        `}
       >
-        <nav className="px-2 pt-2 pb-4 space-y-1 sm:px-3">
-          {navItems.map((item) => {
-            const isActive = pathname === item.href;
-            return (
-              <Link key={item.name} href={item.href}>
-                <span
-                    onClick={closeMenu} // 👈 Fermer le menu après la navigation
-                    className={`
-                        block px-3 py-2 rounded-md text-base font-medium transition-colors
-                        ${isActive 
-                            ? 'bg-gray-100 text-black' // Style actif sur mobile
-                            : 'text-gray-700 hover:bg-gray-50 hover:text-black'
-                        }
-                    `}
-                >
-                    {item.name}
-                </span>
-              </Link>
-            );
-          })}
+        <nav className="p-4 space-y-2">
+          {navItems.map((item) => (
+            <Link key={item.name} href={item.href} onClick={closeMenu}>
+              <div className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-100 transition">
+                <div className="flex items-center gap-3">
+                  <SectionIcon>{item.icon}</SectionIcon>
+                  <span className="font-medium text-gray-900">{item.name}</span>
+                </div>
+                <span className="text-gray-400">⌄</span>
+              </div>
+            </Link>
+          ))}
+
+          <div className="border-t pt-3 mt-3">
+            <button className="flex items-center gap-3 w-full p-3 rounded-xl hover:bg-gray-100 transition">
+              <SectionIcon>🌍</SectionIcon>
+              <span className="font-medium text-gray-900">Français</span>
+            </button>
+          </div>
+
+          <div className="pt-3">
+            <button className="w-full py-3 rounded-xl border font-semibold text-gray-700 hover:bg-gray-50 transition">
+              Envoyer une image
+            </button>
+          </div>
         </nav>
       </div>
+
     </header>
   );
 }

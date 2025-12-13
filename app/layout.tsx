@@ -5,6 +5,7 @@ import Link from "next/link";
 import Head from "next/head";
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
+import StickySearchBar from "./components/layout/StickySearchBar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Header/>
+        {/* <StickySearchBar /> */}
         {children}
         <Footer/>
       </body>
