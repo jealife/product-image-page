@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       images: [
         {
-          url: `https://brf-seven.vercel.app/${image.imageUrl}`,
+          url: `https://brf-seven.vercel.app/images/${image.imageUrl}`,
         },
       ],
     },
