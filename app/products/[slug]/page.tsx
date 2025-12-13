@@ -3,6 +3,27 @@ import { getProductBySlug, productsData } from '@/app/data/products';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
+export async function generateMetadata({ params }: { params: { slug: string } }) {
+  const product = getProductBySlug(params.slug);
+
+  if (!product) {
+    return {
+      title: 'Produit introuvable | BR.F',
+    };
+  }
+
+  return {
+    title: `${product.name} | BR.F`,
+    description: `Achetez ${product.name} de la marque ${product.brand} au meilleur prix.`,
+    openGraph: {
+      images: [
+        {
+          url: `https://brf-seven.vercel.app/products/${product.imageUrl}`,
+        },
+      ],
+    },
+  };
+}
 
 
 
