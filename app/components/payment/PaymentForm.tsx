@@ -45,7 +45,7 @@ export default function PaymentForm({
           className={`flex flex-col items-center border rounded p-2 w-20 transition focus:outline-none ${provider === 'MOOV' ? 'border-black ring-2 ring-yellow-500' : 'border-gray-300'}`}
           onClick={() => setProvider('MOOV')}
         >
-          <Image src="/logos/LOGO-MOMO.jpg" alt="Moov Money" className="h-12" width={48} height={48} placeholder="blur" blurDataURL="/img/placeholder.webp" />
+          <Image src="/logos/momo.png" alt="Moov Money" className="h-12" width={48} height={48} placeholder="blur" blurDataURL="/img/placeholder.webp" />
           {/* <span className="text-xs font-medium">Moov</span> */}
         </button>
       </div>
