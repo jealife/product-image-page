@@ -37,7 +37,7 @@ export default function PaymentForm({
           className={`flex flex-col items-center border rounded p-2 w-20 transition focus:outline-none ${provider === 'AIRTEL' ? 'border-black ring-2 ring-red-600' : 'border-gray-300'}`}
           onClick={() => setProvider('AIRTEL')}
         >
-          <Image src="/logos/airtel-money.png" alt="Airtel Money" className="h-12" width={48} height={48} placeholder="blur" blurDataURL="/img/placeholder.webp" />
+          <Image src="/logos/airtel-money.png" alt="Airtel Money" className="h-12 rounded-xl " width={48} height={48} placeholder="blur" blurDataURL="/img/placeholder.webp" />
           {/* <span className="text-xs font-medium">Airtel</span> */}
         </button>
         <button
