@@ -30,6 +30,7 @@ const SectionIcon = ({ children }: { children: ReactNode }) => (
 const navItems = [
   { name: 'Shop', href: '/shop', icon: '📦' },
   { name: 'Gallery', href: '/gallery', icon: '🖼️' },
+  { name: 'Pricing', href: '/pricing', icon: '🏷️' },
 ];
 
 export default function Header() {
